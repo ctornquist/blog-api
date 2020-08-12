@@ -2,12 +2,10 @@ import Post from '../models/post_model';
 
 export const createPost = (req, res) => {
   const post = new Post();
-  post.setState({
-    title: req.body.title,
-    tags: req.body.tags,
-    contents: req.body.contents,
-    coverURL: req.body.coverURL,
-  });
+  post.text = req.body.title;
+  post.tags = req.body.tags;
+  post.coverUrl = req.body.coverUrl;
+  post.content = req.body.content;
 
   post.save()
     .then((result) => {
@@ -17,15 +15,36 @@ export const createPost = (req, res) => {
       res.status(500).json({ error });
     });
 };
+
 export const getPosts = (req, res) => {
-  res.send('posts should be returned');
+  Post.find().then((result) => {
+    res.json(result);
+  })
+    .catch((error) => {
+      res.status(404).json({ error });
+    });
 };
+
 export const getPost = (req, res) => {
-  res.send('single post looked up');
+  Post.findById(req.params.id).then((result) => {
+    res.json(result);
+  }).catch((error) => {
+    res.status(500).json({ error });
+  });
 };
+
 export const deletePost = (req, res) => {
-  res.send('delete a post here');
+  Post.findByIdAndDelete(req.params.id).then((result) => {
+    res.json(result);
+  }).catch((error) => {
+    res.status(500).json({ error });
+  });
 };
+
 export const updatePost = (req, res) => {
-  res.send('update a post here');
+  Post.findByIdAndUpdate(req.params.id, req.body).then((result) => {
+    res.json(result);
+  }).catch((error) => {
+    res.status(500).json({ error });
+  });
 };
