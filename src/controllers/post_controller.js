@@ -2,7 +2,7 @@ import Post from '../models/post_model';
 
 export const createPost = (req, res) => {
   const post = new Post();
-  post.text = req.body.title;
+  post.title = req.body.title;
   post.tags = req.body.tags;
   post.coverUrl = req.body.coverUrl;
   post.content = req.body.content;

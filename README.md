@@ -1,10 +1,11 @@
 # Title
 
-*description*
+created backend for my blog in mongo
 
-[deployed url](http://url-if-deployed-here)
+https://ct-blog-platform.herokuapp.com/
 
 ## What Worked Well
+got it to work!
 
 ## What Didn't
 
