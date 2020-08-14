@@ -1,11 +1,14 @@
+/* eslint-disable consistent-return */
 import mongoose, { Schema } from 'mongoose';
 import bcryptjs from 'bcryptjs';
 
 // create a User with email/pw
 const UserSchema = new Schema({
   email: { type: String, unique: true, lowercase: true },
+  username: { type: String },
   password: { type: String },
   author: { type: Schema.Types.ObjectId, ref: 'User' },
+
 }, {
   toObject: { virtuals: true },
   toJSON: { virtuals: true },
@@ -47,6 +50,6 @@ UserSchema.methods.comparePassword = function comparePassword(candidatePassword,
 };
 
 // create UserModel class from schema
-const User = mongoose.model('Poll', UserSchema);
+const User = mongoose.model('User', UserSchema);
 
 export default User;

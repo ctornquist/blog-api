@@ -6,6 +6,7 @@ const PostSchema = new Schema({
   tags: String,
   coverUrl: String,
   content: String,
+  author: String,
 }, {
   toObject: { virtuals: true },
   toJSON: { virtuals: true },
@@ -13,6 +14,6 @@ const PostSchema = new Schema({
 });
 
 // create PostModel class from schema
-const Post = mongoose.model('Poll', PostSchema);
+const Post = mongoose.model('Post', PostSchema);
 
 export default Post;

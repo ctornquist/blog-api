@@ -1,4 +1,4 @@
-// lets import some stuff
+/* eslint-disable consistent-return */
 import passport from 'passport';
 import LocalStrategy from 'passport-local';
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt';

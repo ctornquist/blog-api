@@ -18,9 +18,10 @@ export const signin = (req, res, next) => {
 export const signup = (req, res, next) => {
   const { email } = req.body;
   const { password } = req.body;
+  const { username } = req.body;
 
-  if (!email || !password) {
-    return res.status(422).send('You must provide email and password');
+  if (!email || !password || !username) {
+    return res.status(422).send('You must provide email, username and password');
   }
 
   // 🚀 TODO:
@@ -36,6 +37,7 @@ export const signup = (req, res, next) => {
       } else {
         const user = new User({
           email,
+          username,
           password,
         });
         user.save()
