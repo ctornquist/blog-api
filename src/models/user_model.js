@@ -15,6 +15,7 @@ const UserSchema = new Schema({
   timestamps: true,
 });
 
+/* got  how to do genSalt/compare from https://www.npmjs.com/package/bcrypt */
 UserSchema.pre('save', function beforeUserSave(next) {
   // this is a reference to our model
   // the function runs in some other context so DO NOT bind it
