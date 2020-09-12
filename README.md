@@ -1,12 +1,10 @@
-# Title
+# README
 
-created backend for my blog in mongo
+This is the backend for my blog site! It supports functionality for authenticating users, getting all the posts, getting an individual post, and deleting or updating posts.
 
-https://ct-blog-platform.herokuapp.com/
+## To View
+It's deployed on heroku here: https://ct-blog-platform.herokuapp.com/
 
-## What Worked Well
-was able to add user authentication with usernames, emails and passwords
-
-## What Didn't
-
-## Screenshots
+To view in a local development environment:
+1. yarn install
+2. yarn dev
